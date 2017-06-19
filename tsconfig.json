@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "none",
-    "noEmitOnError": true,
-    "removeComments": true,
+    "module": "es6",
     "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
     "declaration": true,
     "noImplicitUseStrict": true,
-    "outDir": "dist"
+    "outDir": "lib/"
   },
-  "exclude": [ "node_modules", "dist" ]
+  "exclude": [ "node_modules", "lib" ]
 }

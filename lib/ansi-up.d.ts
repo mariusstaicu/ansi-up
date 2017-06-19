@@ -1,27 +1,25 @@
-interface AU_Color {
-    rgb: number[];
-    class_name: string;
-}
-declare function rgx(tmplObj: any, ...subst: any[]): RegExp;
-declare class AnsiUp {
-    VERSION: string;
+export declare class AnsiUp {
     ansi_colors: {
         rgb: number[];
         class_name: string;
     }[][];
+    /**
+     * 256 Colors Palette
+     * CSS RGB strings - ex. "255, 255, 255"
+     */
     private palette_256;
     private fg;
     private bg;
     private bright;
-    private _use_classes;
-    private _escape_for_html;
+    private _useClasses;
+    private _escapeForHtml;
     private _sgr_regex;
     private _buffer;
     constructor();
-    use_classes: boolean;
-    escape_for_html: boolean;
+    useClasses: boolean;
+    escapeForHtml: boolean;
     private setup_256_palette();
-    private old_escape_for_html(txt);
+    private doEscape(txt);
     private old_linkify(txt);
     private detect_incomplete_ansi(txt);
     private detect_incomplete_link(txt);
@@ -29,4 +27,5 @@ declare class AnsiUp {
     ansi_to_text(txt: string): string;
     private wrap_text(txt);
     private process_ansi(block);
+    private rgx(tmplObj, ...subst);
 }

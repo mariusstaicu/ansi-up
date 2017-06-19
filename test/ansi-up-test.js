@@ -5,7 +5,7 @@ var should = require('should');
 
 describe('ansi_up', function () {
 
-  describe('escape_for_html on', function () {
+  describe('escapeForHtml on', function () {
 
     describe('ampersands', function () {
 
@@ -123,7 +123,7 @@ describe('ansi_up', function () {
 
   });
 
-  describe('escape_for_html off', function () {
+  describe('escapeForHtml off', function () {
 
     describe('ampersands', function () {
 
@@ -132,7 +132,7 @@ describe('ansi_up', function () {
         var expected = "&";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -142,7 +142,7 @@ describe('ansi_up', function () {
         var expected = "abcd&efgh";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -152,7 +152,7 @@ describe('ansi_up', function () {
         var expected = " & & ";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -162,7 +162,7 @@ describe('ansi_up', function () {
         var expected = " &amp; ";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -175,7 +175,7 @@ describe('ansi_up', function () {
         var expected = "<";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -185,7 +185,7 @@ describe('ansi_up', function () {
         var expected = "abcd<efgh";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -195,7 +195,7 @@ describe('ansi_up', function () {
         var expected = " < < ";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -209,7 +209,7 @@ describe('ansi_up', function () {
         var expected = ">";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -219,7 +219,7 @@ describe('ansi_up', function () {
         var expected = "abcd>efgh";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -229,7 +229,7 @@ describe('ansi_up', function () {
         var expected = " > > ";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -243,7 +243,7 @@ describe('ansi_up', function () {
         var expected = "<&>/\\'\"";
 
         var au = new AnsiUp();
-        au.escape_for_html = false;
+        au.escapeForHtml = false;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -530,7 +530,7 @@ describe('ansi_up', function () {
         var expected = "<span class=\"ansi-green-fg\"> " + fg + " </span>";
 
         var au = new AnsiUp();
-        au.use_classes = true;
+        au.useClasses = true;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -543,7 +543,7 @@ describe('ansi_up', function () {
         var expected = "<span class=\"ansi-green-fg\"> " + fg + "  </span>";
 
         var au = new AnsiUp();
-        au.use_classes = true;
+        au.useClasses = true;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -556,7 +556,7 @@ describe('ansi_up', function () {
         var expected = "<span class=\"ansi-bright-green-fg\"> " + attr + ";" + fg + " </span>";
 
         var au = new AnsiUp();
-        au.use_classes = true;
+        au.useClasses = true;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -570,7 +570,7 @@ describe('ansi_up', function () {
         var expected = "<span class=\"ansi-bright-yellow-fg ansi-green-bg\"> " + attr + ";" + bg + ";" + fg + " </span>";
 
         var au = new AnsiUp();
-        au.use_classes = true;
+        au.useClasses = true;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -584,7 +584,7 @@ describe('ansi_up', function () {
         var expected = "\n <span class=\"ansi-green-fg\"> " + fg + "  </span> \n  <span class=\"ansi-green-bg\"> " + bg + "  </span> \n zimpper ";
 
         var au = new AnsiUp();
-        au.use_classes = true;
+        au.useClasses = true;
         var l = au.ansi_to_html(start);
         l.should.eql(expected);
       });
@@ -594,7 +594,7 @@ describe('ansi_up', function () {
           var start = "\033[38;5;1m" + "red" + "\033[0m";
           var expected = '<span class="ansi-red-fg">red</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -603,7 +603,7 @@ describe('ansi_up', function () {
           var start = "\033[38;5;9m" + "red" + "\033[0m";
           var expected = '<span class="ansi-bright-red-fg">red</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -612,7 +612,7 @@ describe('ansi_up', function () {
           var start = "\033[48;5;1m" + "red" + "\033[0m";
           var expected = '<span class="ansi-red-bg">red</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -621,7 +621,7 @@ describe('ansi_up', function () {
           var start = "\033[48;5;9m" + "red" + "\033[0m";
           var expected = '<span class="ansi-bright-red-bg">red</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -630,7 +630,7 @@ describe('ansi_up', function () {
           var start = "\033[38;5;171m" + "foo" + "\033[0m";
           var expected = '<span style="color:rgb(215,95,255)">foo</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -639,7 +639,7 @@ describe('ansi_up', function () {
           var start = "\033[48;5;171m" + "foo" + "\033[0m";
           var expected = '<span style="background-color:rgb(215,95,255)">foo</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -648,7 +648,7 @@ describe('ansi_up', function () {
           var start = "\033[1;38;5;171m" + "foo" + "\033[0m";
           var expected = '<span style="color:rgb(215,95,255)">foo</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -657,7 +657,7 @@ describe('ansi_up', function () {
           var start = "\033[38;5;171;1m" + "foo" + "\033[0m";
           var expected = '<span style="color:rgb(215,95,255)">foo</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -668,7 +668,7 @@ describe('ansi_up', function () {
           var start = "\033[38;2;42;142;242m" + "foo" + "\033[0m";
           var expected = '<span style="color:rgb(42,142,242)">foo</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -676,7 +676,7 @@ describe('ansi_up', function () {
           var start = "\033[48;2;42;142;242m" + "foo" + "\033[0m";
           var expected = '<span style="background-color:rgb(42,142,242)">foo</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
@@ -684,7 +684,7 @@ describe('ansi_up', function () {
           var start = "\033[38;2;42;142;242;48;2;1;2;3m" + "foo" + "\033[0m";
           var expected = '<span style="color:rgb(42,142,242);background-color:rgb(1,2,3)">foo</span>';
           var au = new AnsiUp();
-          au.use_classes = true;
+          au.useClasses = true;
           var l = au.ansi_to_html(start);
           l.should.eql(expected);
         });
