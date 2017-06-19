@@ -2,15 +2,17 @@
   "name": "ansi-up",
   "description": "Fork of ansi_up by drudru. Convert ansi sequences in strings to colorful HTML",
   "author": "Marius Staicu <marius.s.staicu@gmail.com>",
-  "version": "1.0.0-beta.8",
-  "main": "lib/ansi-up.js",
-  "types": "lib/ansi-up.d.ts",
+  "version": "1.0.0",
+  "main": "dist/ansi-up.js",
+  "style": "dist/ansi-up.scss",
+  "types": "dist/ansi-up.d.ts",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "dependencies": {},
   "devDependencies": {
     "mocha": "*",
+    "node-sass": "^4.5.3",
     "should": "*",
     "tslint": "^5.2.0",
     "typescript": "^2.3.2"
@@ -31,6 +33,8 @@
     "node": "*"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "npm run compile && npm run copy:resources",
+    "compile": "tsc",
+    "copy:resources": "cp src/*.scss dist/"
   }
 }

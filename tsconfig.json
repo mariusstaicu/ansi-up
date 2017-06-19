@@ -8,7 +8,9 @@
     "removeComments": false,
     "declaration": true,
     "noImplicitUseStrict": true,
-    "outDir": "lib/"
+    "outDir": "dist/"
   },
-  "exclude": [ "node_modules", "lib" ]
+  "exclude": [ "node_modules",
+    "dist"
+  ]
 }
